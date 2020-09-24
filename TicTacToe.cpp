@@ -13,27 +13,23 @@ char** CreateBoard()
     return board;
 }
 
-void DisplayBoard(char** board)
-{
-    std::cout << "----------" << std::endl;
-    for(int i=0; i < 3; i++)
-    {
-        std::cout << "| ";
-        for(int j= 0; j < 3; j++)
-        {
-            if(j == 2)
-            {
-                std::cout << board[i][j] << " |" << std::endl;
-                std::cout << "----------" << std::endl;
+/**
+    Displays the tic tac toe board in the terminal
+    @param b    2D array representing the board to display
+*/
+void DisplayBoard(char **b){
+    for(int i=0; i<3; i++){
+        for(int j=0; j<3; j++){
+            std::cout << "\t" << b[i][j];
+            if(j==0 || j==1){
+                std::cout << "\t|";
             }
-            else
-            {
-                std::cout << board[i][j] << " | ";
-            }
-
         }
+        if(i!=2){
+            std::cout << "\n\t----------------------------------";
+        }
+        std::cout << std::endl;
     }
-    std::cout<<std::endl;
 }
 
 int main()
@@ -41,4 +37,4 @@ int main()
     char** test = CreateBoard();
     DisplayBoard(test);
     return 0;
-}
+} 
