@@ -48,7 +48,9 @@ int* GetPlayerChoice()
     int* position = new int[2];
     std::cin >> position[0];
     std::cin >> position[1];
-    std::cout << "Index: " << position[0]-1 << ", " << position[1]-1 << std::endl;
+    position[0]-=1;
+    position[1]-=1;
+    std::cout << "Index: " << position[0] << ", " << position[1] << std::endl;
 
     return position;
 }
@@ -61,8 +63,8 @@ int* GetPlayerChoice()
 void PlaceMarker(int* pos, int turnCount, char** board)
 {
     int player = turnCount % 2;
-    int a = pos[0]-1;
-    int b = pos[1]-1;
+    int a = pos[0];
+    int b = pos[1];
 
     if(player == 0)
     {
