@@ -32,9 +32,41 @@ void DisplayBoard(char **b){
     }
 }
 
+int* PlayerChoice()
+{
+    std::cout << "Please enter a location on the board. Enter response in form of <row> ENTER <column>, each ranging from 0-2:" << std::endl;
+    int position[2];
+    std::cin >> position[0];
+    std::cin >> position[1];
+//    std::cout << "HERE: " << position << std::endl;
+    return position;
+}
+
+void PlacePlayer(int* pos, int turnCount, char** board)
+{
+    int player = turnCount % 2;
+    if(player == 0)
+    {
+        board[pos[0]][pos[1]] = 'X';
+    }
+    else
+    {
+        board[pos[0]][pos[1]] = 'O';
+    }
+
+}
+
 int main()
 {
     char** test = CreateBoard();
     DisplayBoard(test);
+    int turnCount = 0;
+    while(true)
+    {
+        int* choice = PlayerChoice();
+        PlacePlayer(choice, turnCount, test);
+        DisplayBoard(test);
+        turnCount++;
+    }
     return 0;
-} 
+}
