@@ -56,10 +56,32 @@ int *GetPlayerChoice(){
     return pos;
 }
 
+
+void PlacePlayer(int* pos, int turnCount, char** board)
+{
+    int player = turnCount % 2;
+    if(player == 0)
+    {
+        board[pos[0]][pos[1]] = 'X';
+    }
+    else
+    {
+        board[pos[0]][pos[1]] = 'O';
+    }
+}
+
 int main()
 {
     char** test = CreateBoard();
     DisplayBoard(test);
-    GetPlayerChoice();
+    int turnCount = 0;
+    while(true)
+    {
+        int* choice = PlayerChoice();
+        PlacePlayer(choice, turnCount, test);
+        DisplayBoard(test);
+        turnCount++;
+    }
+
     return 0;
-} 
+}
