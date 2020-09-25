@@ -1,6 +1,11 @@
 #include <iostream>
 #include <string>
 
+/**
+    Creates a new 3x3 tic tac toe board
+
+    @return char array representing an empty board
+*/
 char** CreateBoard()
 {
     char** board = new char*[3];
@@ -32,9 +37,51 @@ void DisplayBoard(char **b){
     }
 }
 
+/**
+    Gets user input for where to make a move on the board
+
+    @return     array with coordinate
+*/
+int *GetPlayerChoice(){
+    int pos[2];
+    std::string input;
+    std::cout << "Please enter a coordinate where you would like to place your move using the format <row> ENTER <column> from available coordinates 1-3: ";
+    std::cin >> pos[0];
+    std::cin >> pos[1];
+    //convert to array coords
+    pos[0]-=1;
+    pos[1]-=1;
+    std::cout << pos[0] << "," << pos[1] << std::endl;
+
+    return pos;
+}
+
+
+void PlacePlayer(int* pos, int turnCount, char** board)
+{
+    int player = turnCount % 2;
+    if(player == 0)
+    {
+        board[pos[0]][pos[1]] = 'X';
+    }
+    else
+    {
+        board[pos[0]][pos[1]] = 'O';
+    }
+}
+
 int main()
 {
     char** test = CreateBoard();
     DisplayBoard(test);
+    int turnCount = 0;
+    while(true)
+    {
+        int* choice = PlayerChoice();
+        PlacePlayer(choice, turnCount, test);
+        DisplayBoard(test);
+        turnCount++;
+    }
+
     return 0;
-} 
+}
