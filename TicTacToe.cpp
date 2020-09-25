@@ -42,31 +42,35 @@ void DisplayBoard(char **b){
 
     @return     array with coordinate
 */
-int *GetPlayerChoice(){
-    int pos[2];
-    std::string input;
-    std::cout << "Please enter a coordinate where you would like to place your move using the format <row> ENTER <column> from available coordinates 1-3: ";
-    std::cin >> pos[0];
-    std::cin >> pos[1];
-    //convert to array coords
-    pos[0]-=1;
-    pos[1]-=1;
-    std::cout << pos[0] << "," << pos[1] << std::endl;
+int* GetPlayerChoice()
+{
+    std::cout << "Please enter a location on the board. Enter response in form of <row> ENTER <column>, each ranging from 1-3:" << std::endl;
+    int* position = new int[2];
+    std::cin >> position[0];
+    std::cin >> position[1];
+    std::cout << "Index: " << position[0]-1 << ", " << position[1]-1 << std::endl;
 
-    return pos;
+    return position;
 }
 
 
-void PlacePlayer(int* pos, int turnCount, char** board)
+/**
+    Sets the 'X' or 'O' marks on the board based on the player turn.
+
+*/
+void PlaceMarker(int* pos, int turnCount, char** board)
 {
     int player = turnCount % 2;
+    int a = pos[0]-1;
+    int b = pos[1]-1;
+
     if(player == 0)
     {
-        board[pos[0]][pos[1]] = 'X';
+        board[a][b] = 'X';
     }
     else
     {
-        board[pos[0]][pos[1]] = 'O';
+        board[a][b] = 'O';
     }
 }
 
@@ -77,8 +81,8 @@ int main()
     int turnCount = 0;
     while(true)
     {
-        int* choice = PlayerChoice();
-        PlacePlayer(choice, turnCount, test);
+        int* choice = GetPlayerChoice();
+        PlaceMarker(choice, turnCount, test);
         DisplayBoard(test);
         turnCount++;
     }
