@@ -76,6 +76,46 @@ void PlaceMarker(int* pos, int turnCount, char** board)
     }
 }
 
+bool isGameOver(char** board, int turnCount)
+{
+
+    for(int i = 0; i < 3; i++)
+    {
+
+        if(board[i][0] == board[i][1] && board[i][1] == board[i][2])
+        {
+            if(board[i][0] != '\0') {
+
+                std::cout << "Player " << board[i][0] << " won!" << std::endl;
+                return true;
+            }
+        }
+    }
+    for(int i = 0; i < 3; i++)
+    {
+        if(board[0][i] == board[1][i] && board[1][i] == board[2][i])
+        {
+            if(board[0][i] != '\0') {
+                std::cout << "Player " << board[0][1] << " won!" << std::endl;
+                return true;
+            }
+        }
+    }
+    if((board[0][0] == board[1][1] && board[1][1] == board[2][2]) || (board[0][2] == board[1][1] && board[1][1] == board[2][0]))
+    {
+        if(board[1][1] != '\0') {
+            std::cout << "Player " << board[1][1] << " won!" << std::endl;
+            return true;
+        }
+    }
+    if(turnCount == 8)
+    {
+        std::cout << "No one won!" << std::endl;
+        return true;
+    }
+    return false;
+}
+
 int main()
 {
     char** test = CreateBoard();
@@ -86,6 +126,10 @@ int main()
         int* choice = GetPlayerChoice();
         PlaceMarker(choice, turnCount, test);
         DisplayBoard(test);
+        if(isGameOver(test, turnCount))
+        {
+            break;
+        }
         turnCount++;
     }
 
