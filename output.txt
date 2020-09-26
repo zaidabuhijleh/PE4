@@ -1,0 +1,70 @@
+Zaids-MacBook-Pro:PE4 zaidabuhijleh$ ./app
+		|		|	
+	----------------------------------
+		|		|	
+	----------------------------------
+		|		|	
+Please enter a location on the board. Enter response in form of <row> ENTER <column>, each ranging from 1-3:
+1
+1
+Index: 0, 0
+	X	|		|	
+	----------------------------------
+		|		|	
+	----------------------------------
+		|		|	
+Please enter a location on the board. Enter response in form of <row> ENTER <column>, each ranging from 1-3:
+1
+2
+Index: 0, 1
+	X	|	O	|	
+	----------------------------------
+		|		|	
+	----------------------------------
+		|		|	
+Please enter a location on the board. Enter response in form of <row> ENTER <column>, each ranging from 1-3:
+2
+1
+Index: 1, 0
+	X	|	O	|	
+	----------------------------------
+	X	|		|	
+	----------------------------------
+		|		|	
+Please enter a location on the board. Enter response in form of <row> ENTER <column>, each ranging from 1-3:
+3
+1
+Index: 2, 0
+	X	|	O	|	
+	----------------------------------
+	X	|		|	
+	----------------------------------
+	O	|		|	
+Please enter a location on the board. Enter response in form of <row> ENTER <column>, each ranging from 1-3:
+2
+2
+Index: 1, 1
+	X	|	O	|	
+	----------------------------------
+	X	|	X	|	
+	----------------------------------
+	O	|		|	
+Please enter a location on the board. Enter response in form of <row> ENTER <column>, each ranging from 1-3:
+3
+1
+Index: 2, 0
+	X	|	O	|	
+	----------------------------------
+	X	|	X	|	
+	----------------------------------
+	O	|		|	
+Please enter a location on the board. Enter response in form of <row> ENTER <column>, each ranging from 1-3:
+2
+3
+Index: 1, 2
+	X	|	O	|	
+	----------------------------------
+	X	|	X	|	X
+	----------------------------------
+	O	|		|	
+Player X won!
